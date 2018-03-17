@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Doctrine\ORM\EntityManagerInterface;
+use Krak\DoctrineOAuth2\Model\{Scope, Client};
 
 class OAuthSeeder extends Seeder
 {
