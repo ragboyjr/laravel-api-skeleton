@@ -27,7 +27,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\App\Validation\ValidationServiceProvider::class);
         $this->app->register(\App\Http\HttpServiceProvider::class);
         $this->app->register(\App\Model\ModelServiceProvider::class);
-        $this->app->register(\App\Doctrine\DoctrineServiceProvider::class);
 
         $this->doctrine();
     }

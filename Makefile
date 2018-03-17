@@ -1,4 +1,4 @@
-.PHONY: test test-integration keys refresh-db clear-doctrine-cache deploy permissions local-access-token clean-project ignored-files
+.PHONY: test test-integration keys refresh-db clear-doctrine-cache deploy permissions local-access-token clean-project ignored-files healthcheck
 
 SHELL:=/bin/bash
 
@@ -10,7 +10,7 @@ deploy:
 	./artisan doctrine:generate:proxies
 	./artisan doctrine:migrations:migrate
 	fixtures
-	make permissions
+	make permissions healthcheck
 setup:
 	composer install
 	make keys
@@ -48,6 +48,12 @@ clear-doctrine-cache:
 	./artisan doctrine:clear:result:cache
 
 ignored-files: $(IGNORED_FILES)
+
+healthcheck:
+	echo ref: `git rev-parse --abbrev-ref HEAD` > public/_healthcheck
+	echo tag: `git tag --points-at HEAD` >> public/_healthcheck
+	echo msg: `git show HEAD --oneline -s` >> public/_healthcheck
+	echo date: `date -R` >> public/_healthcheck
 
 $(IGNORED_FILES): %: %.example
 	cp $< $@
