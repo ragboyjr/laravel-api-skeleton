@@ -3,7 +3,7 @@
 Install via:
 
 ```
-composer create-project --repository=git@github.com:ragboyjr/laravel-api-skeleton.git laravel/laravel {name}
+composer create-project ragboyjr/laravel-api-skeleton {name}
 ```
 
 Once installed, you'll want to run the following:
