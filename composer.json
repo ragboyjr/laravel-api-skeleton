@@ -14,7 +14,10 @@
         "krak/validation": "^0.3.9",
         "laravel-doctrine/migrations": "^1.1",
         "laravel-doctrine/orm": "1.4.*",
-        "laravel/framework": "5.6.*"
+        "laravel/framework": "5.6.*",
+        "predis/predis": "^1.1",
+        "symfony/psr-http-message-bridge": "^1.0",
+        "zendframework/zend-diactoros": "^1.7"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

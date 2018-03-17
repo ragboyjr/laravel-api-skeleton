@@ -14,11 +14,12 @@ find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -ex
 find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_underscore}/acme_svc/g' {} \;
 find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_title}/Acme Svc/g' {} \;
 find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_doctrine_ns}/Acme/g' {} \;
+find ./tests -type f -print -exec sed -i '' -e 's/namespace App\\/namespace Acme\\Svc\\/g' {} \;
+./artisan app:name 'Acme\Svc'
+make ignored-files
 ```
 
-After you get composer installed, you'll want to set the app namespace via `./artisan app:name 'Acme\Svc'`.
-
-Then you can run `make ignored-files` and `./artisan doctrine:migrations:diff` to generate the initial migration.
+Once completed, start docker via `docker-compose up` and run `./artisan doctrine:migrations:diff` to generate the initial migration.
 
 ## Development Setup
 

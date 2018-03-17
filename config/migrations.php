@@ -44,7 +44,7 @@ return [
         | the entity manager name (connection name).
         |
         */
-        'namespace' => 'App\\Database\\Migrations',
+        'namespace' => App\Database\Migrations::class,
         /*
         |--------------------------------------------------------------------------
         | Migration Repository Table
