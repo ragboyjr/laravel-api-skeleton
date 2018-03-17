@@ -1,0 +1,16 @@
+App\Model\Entity:
+    type: entity
+    table: entity
+    repositoryClass: App\Model\Entity\EntityRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    indexes:
+        created_at_index: { columns: [created_at] }
+    fields:
+        field:
+            type: string
+        createdAt:
+             type: datetime

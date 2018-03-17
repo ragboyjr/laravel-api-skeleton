@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  {project}:
+    image: bigheadtech/php-apache:7.1-dev
+    container_name: {project}
+    volumes:
+      - ./:/var/www/html:cached
+      - ./etc/php/php.ini:/usr/local/etc/php/php.ini
+      - ./etc/apache2/site.conf:/etc/apache2/sites-enabled/site.conf
+    restart: unless-stopped
+    environment:
+      - SERVICE_NAME={project}
+  {project}-mysql:
+    image: mariadb:10.2.6
+    container_name: {project}-mysql
+    hostname: {project}-mysql
+    env_file: ./.env
+    volumes:
+       - ./etc/mysql/init-db:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+  {project}-redis:
+    image: redis
+    container_name: {project}-redis
+    restart: unless-stopped
