@@ -1,8 +1,8 @@
 <?php
 
-namespace ModernProducer\Api\Tests\Integration;
+namespace App\Tests\Integration;
 
-use ModernProducer\Api\Tests\TestCase;
+use App\Tests\TestCase;
 
 abstract class AbstractAPITest extends TestCase
 {

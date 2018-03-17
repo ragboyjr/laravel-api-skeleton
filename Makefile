@@ -2,7 +2,7 @@
 
 SHELL:=/bin/bash
 
-IGNORED_FILES=docker-compose.override.yml .env etc/mysql.env playground.php
+IGNORED_FILES=docker-compose.override.yml .env etc/mysql/.env playground.php
 
 deploy:
 	composer install

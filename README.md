@@ -10,15 +10,15 @@ Once installed, you'll want to run the following:
 
 ```
 mv .editor/project.sublime-project .editor/acme-svc.sublime-project
-find . -type f -exec sed -i 's/{project}/acme-svc/g' {} \;
-find . -type f -exec sed -i 's/{project_underscore}/acme_svc/g' {} \;
-find . -type f -exec sed -i 's/{project_title}/Acme Svc/g' {} \;
-find . -type f -exec sed -i 's/{project_doctrine_ns}/Acme/g' {} \;
+find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project}/acme-svc/g' {} \;
+find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_underscore}/acme_svc/g' {} \;
+find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_title}/Acme Svc/g' {} \;
+find . -type d \( -path ./vendor -o -path ./.git \) -prune -o -type f -print -exec sed -i '' -e 's/{project_doctrine_ns}/Acme/g' {} \;
 ```
 
 After you get composer installed, you'll want to set the app namespace via `./artisan app:name 'Acme\Svc'`.
 
-Then you can run `./artisan doctrine:migrations:diff` to generate the initial migration.
+Then you can run `make ignored-files` and `./artisan doctrine:migrations:diff` to generate the initial migration.
 
 ## Development Setup
 

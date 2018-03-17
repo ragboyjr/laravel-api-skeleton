@@ -15,7 +15,7 @@ services:
     image: mariadb:10.2.6
     container_name: {project}-mysql
     hostname: {project}-mysql
-    env_file: ./.env
+    env_file: ./etc/mysql/.env
     volumes:
        - ./etc/mysql/init-db:/docker-entrypoint-initdb.d
     restart: unless-stopped

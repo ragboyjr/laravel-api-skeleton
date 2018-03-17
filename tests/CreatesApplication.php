@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace App\Tests;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Console\Kernel;
