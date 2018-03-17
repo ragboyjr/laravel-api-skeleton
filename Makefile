@@ -9,7 +9,7 @@ deploy:
 	make clear-doctrine-cache
 	./artisan doctrine:generate:proxies
 	./artisan doctrine:migrations:migrate
-	fixtures
+	./artisan db:seed --class=DatabaseFixtures
 	make permissions healthcheck
 setup:
 	composer install
@@ -39,8 +39,9 @@ storage/oauth-private.key:
 	chown www-data:www-data storage/oauth*.key
 
 refresh-db:
-	./artisan doctrine:migrations:refresh --seed
+	./artisan doctrine:migrations:refresh
 	./artisan db:seed --class=OAuthSeeder
+	./artisan db:seed --class=DatabaseFixtures
 
 clear-doctrine-cache:
 	./artisan doctrine:clear:metadata:cache
